@@ -1,0 +1,88 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-color fixed-top teal-darken-3">
+
+      <div class="container">
+        <%= link_to "Bumbagora", root_path, class:"navbar-brand text-white" %> 
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          
+          <span class=" d-block navbar-toggler-icon"></span>
+          <span class=" d-block navbar-toggler-icon"></span>
+          <span class=" d-block navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to "Ver vagas", jobs_path, class: "nav-link", "data-turbo-frame": "_top" %>
+            </li>
+            <li class="nav-item">
+               
+            <%= link_to "Postar Vaga", new_job_path, class: "nav-link" %>
+
+            </li>
+            <% if user_signed_in? %>
+
+              <li class="nav-item">
+                <% if user_is_admin_or_company?(current_user) %>
+                  <%= link_to "Candidatos", users_jobs_path, class: "nav-link", "data-turbo-frame": "_top" %>
+                  <% else %>
+                  <%= link_to "Candidaturas", users_jobs_path, class: "nav-link", "data-turbo-frame": "_top" %>
+                  <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <ul class="nav justify-content-end ">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to rooms_path, class:"nav-link" do %>
+              <button type="button" class="btn btn-transparent position-relative">
+                <i class="bi-chat-left-text text-white "></i>
+                <% if @invite.present? %>
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                    <!-- Show number of messages -->
+                    <% if user_is_admin_or_company?(current_user) %>
+                      <%= find_and_count_candidate_messages_with_room(@invite.room) %>
+                    <% else %>
+                      <%= find_and_count_company_messages_with_room(@invites) %>
+                    <% end %>
+                    <!-- End show number of messages -->
+                    
+                    <span class="visually-hidden">unread messages</span>
+                 <% elsif candidate_has_invite?(current_user) %>
+                
+                   <span class="position-absolute top-0 start-100 translate-middle p-2 pink-lighten-4  rounded-circle">
+                      <span class="visually-hidden">New alerts</span>
+                   </span>
+                   <% else %>
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 teal-lighten-5  rounded-circle">
+                      <span class="visually-hidden">New alerts</span>
+                   </span>
+                   
+                 <% end %>
+                </span>
+              </button>
+              <% end %>
+            </li>
+              
+            </li>
+            <li class="nav-item">
+            <%= link_to "Perfil", edit_user_registration_path, class: "nav-link"%>
+            </li>
+              <li class="nav-item ">
+              <%= link_to 'Sair', destroy_user_session_path, method: :delete,  class: "nav-link btn btn-outline-light" %>
+            </li>
+            <% else %>
+              <li class="nav-item "> 
+              <%= link_to "Criar conta", new_user_registration_path, class: "nav-link " %>
+              
+            </li>
+              <li class="nav-item">
+              <%= link_to "Entrar", new_user_session_path, class: "nav-link btn btn-outline-light"%>
+            </li>
+            <% end %>
+        </ul>
+        </div>
+      </div>
+  </nav>
+</header>

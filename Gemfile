@@ -49,6 +49,8 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'jquery-rails', '~> 4.6'
+gem 'devise-i18n', '~> 1.11'
+gem 'rails-i18n', '~> 7.0.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
