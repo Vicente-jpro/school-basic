@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-color bg-warning">
 
       <div class="container">
-        <%= link_to "Bumbagora", root_path, class:"navbar-brand text-white" %> 
+        <%= link_to "Projecto de Segurança", root_path, class:"navbar-brand text-white" %> 
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           
@@ -27,7 +27,7 @@
           <% if user_signed_in? %>
              
             <li class="nav-item">
-            <%= link_to "Perfil", edit_user_registration_path, class: "nav-link"%>
+            <%= link_to "Segurança", edit_user_registration_path, class: "nav-link"%>
             </li>
               <li class="nav-item ">
               <%= link_to 'Sair', destroy_user_session_path, method: :delete,  class: "nav-link btn btn-outline-light" %>
