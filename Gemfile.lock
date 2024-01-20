@@ -240,6 +240,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  devise (~> 4.9)
   devise-i18n (~> 1.11)
   importmap-rails
   jbuilder
