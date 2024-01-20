@@ -52,6 +52,7 @@ gem 'jquery-rails', '~> 4.6'
 gem 'devise-i18n', '~> 1.11'
 gem 'rails-i18n', '~> 7.0.0'
 gem "devise", "~> 4.9"
+gem 'bootstrap_form', '~> 5.2', '>= 5.2.3'
 
 
 group :development, :test do

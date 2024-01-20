@@ -2,14 +2,6 @@
  <div class="container col-lg-6 my-4">
     <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
         <div class="card-body">
-        <div class="card-title">
-            <div class="d-flex justify-content-center">
-
-              <%= render "image", image_profile: profile.image %>
-              
-            </div>
-            <h4 class="text-center text-pink">Editar Perfil</h4>
-        </div>
         <div class="row my-2">
           <%= bootstrap_form_with(model: profile) do |form| %>
             <% if profile.errors.any? %>
@@ -27,8 +19,6 @@
             <div>
               <%= form.text_field :name_profile, 
               label: Profile.human_attribute_name(:name_profile), class: 'text-light-emphasis' %>
-              <%= form.file_field :image, label: Profile.human_attribute_name(:image),
-               class: 'text-light-emphasis'%>  
               <%= form.select :gender, Profile.genders, {label: :gender}, class: 'text-light-emphasis'%>
 
               <%= form.select :profile_type, Profile.profile_types, 
