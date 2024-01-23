@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
   resources :profiles
   resources :cities, only: [:province] do 
     member do 
