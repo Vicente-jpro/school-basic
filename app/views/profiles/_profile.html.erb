@@ -17,8 +17,11 @@
           </div>
           <div class="mb-3 d-grid gap-2">
               <%= link_to t("links.edit"), edit_profile_path(profile), class: "btn btn-info" %> 
-              <>
-              <%= button_to "Eliminar", profile, method: :delete, class: "btn btn-danger" %>
+              <% if user_signed_in? %>
+                <% if current_user.profile.funcionario? %>
+                 <%= button_to "Eliminar", profile, method: :delete, class: "btn btn-danger col-sm-12" %>
+                <% end %>
+              <% end %>
           </div>
         </div>
     </div>
