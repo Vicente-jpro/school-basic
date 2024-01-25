@@ -8,6 +8,14 @@ class ProfilesController < ApplicationController
   # GET /profiles or /profiles.json
   def index
     @profiles = Profile.includes(:user, :address)
+    if current_user.profile.funcionario?
+      @profiles = Profile.includes(:user, :address)
+    else
+      profile = Profile.find_by_user(current_user)
+ 
+      @profiles = []
+      @profiles << profile 
+    end
   end
 
   # GET /profiles/1 or /profiles/1.json

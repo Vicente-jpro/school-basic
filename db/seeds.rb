@@ -38,21 +38,21 @@ puts "Fim do cadastro de usuários."
 
 puts "Cadastrando as perfis...."
 Profile.find_or_create_by!(
-    name_profile: "Ucan 22", 
+    name_profile: "Utanga", 
     phone1: "944889722",
     phone2: "666666666",
     profile_type: "ESTUDANTE",
     gender: "MASCULINO",
     address: Address.all.sample,
-    user: User.first
+    user: User.last
 )
 Profile.find_or_create_by!(
-    name_profile: "Ucan 11", 
+    name_profile: "Catolica", 
     phone1: "942222222",
     phone2: "994444444",
     profile_type: "FUNCIONARIO",
     gender: "MASCULINO",
     address: Address.all.sample,
-    user: User.last
+    user:User.first 
 )
 puts "Fim do cadastro de perfis."
